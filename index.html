@@ -1,40 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        body {
+    
+            font-family: Arial, sans-serif;
+    
+            margin: 20px;
+    
+        }
+    
+        ul {
+    
+            list-style-type: none;
+    
+            padding: 0;
+    
+        }
+    
+        li {
+    
+            padding: 8px;
+    
+            background: #f9f9f9;
+    
+            border: 1px solid #ddd;
+    
+            margin-bottom: 5px;
+    
+            display: flex;
+    
+            justify-content: space-between;
+    
+        }
+    
+        button {
+    
+            background-color: red;
+    
+            color: white;
+    
+            border: none;
+    
+            padding: 5px 10px;
+    
+            cursor: pointer;
+    
+            border-radius: 3px;
+    
+        }
+    
+        button:hover {
+    
+            background-color: darkred;
+    
+        }
+    </style>
 </head>
+
 <body>
-   <h2>To-Do List App using JS</h2> 
-    <form onclick="addtd();return false;">
+    <h2>To-Do List App using JS</h2>
+    <form onsubmit="addtd(); return false;">
         <input type="text" id="todoinput" placeholder="Enter the item here">
         <button type="submit">Add item</button>
-        
     </form>
     <ul id="todolist">
-        
     </ul>
 
-   <script>
-    function addtd()
-    {
-        var tdinput = document.getElementById("todoinput").value;
-        if(tdinput !== " ")
-        {
-            var li = document.createElement("li")
-            li.textContent=tdinput
-            var delbutton = document.createElement("button")
-            delbutton.textContent="delete";
-            delbutton.onclick = function ()
-            {
-                li.remove
-            };
-            li.appendChild(delbutton);
-            document.getElementById("todolist").appendChild(li);
-            document.getElementById("todoinput").value = "";
+    <script>
+        function addtd() {
+            var tdinput = document.getElementById("todoinput").value;
+            if (tdinput !== "") {
+                var li = document.createElement("li");
+                li.textContent = tdinput;
+
+                var delbutton = document.createElement("button");
+                delbutton.textContent = "delete";
+                delbutton.onclick = function () {
+                    li.remove();
+                };
+
+                li.appendChild(delbutton);
+                document.getElementById("todolist").appendChild(li);
+                document.getElementById("todoinput").value = "";
+            }
         }
-    }
-   </script>
+    </script>
 </body>
+
 </html>
